@@ -1,0 +1,39 @@
+classDiagram
+
+class user{
+ -user_id: int
+ -user_name: String
+ -user_email: String
+}
+class ticket{
+ -ticket_id: int
+ -ticket_title: String 
+ -ticket_type: String
+ -ticket_user_id: int
+ -ticked_severity: String
+ -ticket_priority: String
+ -ticket_status: String
+ -cretion_date: date
+ -updation_date: date
+ +add_ticket(-ticket_id: int,-ticket_title: String,-ticket_type: String )
+ +delete_ticket(-ticket_id: int)
+ +get_ticket(-ticket_id: int) display ticket_details
+}
+class edit_ticket{
+ -ticket_id: int
+ +change_severity(ticket_id: int)
+ +change_priority(ticket_id: int)
+ +change_status(ticket_id: int)
+ +updated_date(ticket_id: int)
+}
+class ticket_details{
+-ticket_id: int
+ +display_ticket_status(-ticket_id: int)  ticket_status
+ +display_ticket_title(-ticket_id: int)  ticket_title
+ +display_ticket_severity(-ticket_id: int)  ticket_severity
+ +display_ticket_priority(-ticket_id: int)  ticket_priority
+ +display_user_details(-ticket_id: int) user_id,user_email,user_name
+}
+ ticket -- ticket_details : display
+ ticket -- user : created by
+ ticket -- edit_ticket : makes changes
