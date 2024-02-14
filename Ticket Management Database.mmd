@@ -34,6 +34,6 @@ class ticket_details{
  +display_ticket_priority(-ticket_id: int)  ticket_priority
  +display_user_details(-ticket_id: int) user_id,user_email,user_name
 }
- ticket -- ticket_details : display
- ticket -- user : created by
- ticket -- edit_ticket : makes changes
+ tickets -- ticket_details : display
+ tickets -- users : created by
+ tickets -- edit_ticket : makes changes
